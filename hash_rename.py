@@ -25,8 +25,16 @@ def rename_file(file_path):
     hash_prefix = get_md5_hash(file_path)
     new_file_name = f"{hash_prefix}_{file_name}"
     new_file_path = os.path.join(dir_name, new_file_name)
+
+    if file_name.startswith(hash_prefix + '_'):
+        print(f"Skipping '{file_path}' (already renamed)")
+        return
     
-    input(f"Press Enter to rename the file {file_path}...")
+    inp = input(f"Press Enter to rename the file '{file_path}' to '{hash_prefix}_{file_name[:10]}...', or Ctrl+C to cancel, or 's' to skip >> ")
+
+    if 's' in inp.lower():
+        print(f"Skipping '{file_path}'")
+        return
     os.rename(file_path, new_file_path)
     print(f"Renamed '{file_path}' to '{new_file_path}'")
 
@@ -38,6 +46,9 @@ def process_path(path):
         for root, dirs, files in os.walk(path):
             for file in files:
                 file_path = os.path.join(root, file)
+                if not os.path.isfile(file_path):
+                    print(f"Skipping non-file: {file_path}")
+                    continue
                 rename_file(file_path)
 
 def main():
@@ -46,6 +57,7 @@ def main():
     # TODO: add a "--no-prompt" (aka "-y") flag to skip the prompt
     # TODO: add a hash_length arg
     # TODO: add a hash_func arg (to select md5, etc.)
+    # TODO: add a no-recursion flag
 
     args = parser.parse_args()
 

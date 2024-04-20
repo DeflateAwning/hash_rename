@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "hash_rename"
 
 # reminder: version is also in __init__.py
-version = "0.3.0"
+version = "0.3.1"
 description = "A tool to rename files in a folder to be prefixed with a hash of the file's contents"
 authors = [{ name = "DeflateAwning" }]
 license = "Unlicense"
@@ -17,6 +17,12 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+[project.urls]
+homepage = "https://github.com/DeflateAwning/hash_rename"
+repository = "https://github.com/DeflateAwning/hash_rename"
+issues = "https://github.com/DeflateAwning/hash_rename/issues"
+license = "https://github.com/DeflateAwning/hash_rename/blob/main/LICENSE"
+pypi = "https://pypi.org/project/hash-rename"
+
 [project.scripts]
 hash_rename = "hash_rename.cli:main"
-

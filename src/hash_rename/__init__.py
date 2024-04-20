@@ -1,4 +1,4 @@
-__version__ = "0.3.0"
+__version__ = "0.3.1"
 
 from .core import process_path, get_md5_hash, rename_file
 from .cli import main

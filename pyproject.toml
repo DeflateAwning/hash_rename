@@ -4,7 +4,9 @@ build-backend = "hatchling.build"
 
 [project]
 name = "hash_rename"
-version = "0.2.0"
+
+# reminder: version is also in __init__.py
+version = "0.3.0"
 description = "A tool to rename files in a folder to be prefixed with a hash of the file's contents"
 authors = [{ name = "DeflateAwning" }]
 license = "Unlicense"
@@ -16,4 +18,5 @@ classifiers = [
 ]
 
 [project.scripts]
-hash_rename = "hash_rename.__main__:main"
+hash_rename = "hash_rename.cli:main"
+

@@ -1,3 +1,6 @@
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
-from .__main__ import main, get_md5_hash, rename_file, process_path
+from .core import process_path, get_md5_hash, rename_file
+from .cli import main
+
+__all__ = ["process_path", "get_md5_hash", "rename_file", "main"]
